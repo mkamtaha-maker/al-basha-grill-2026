@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Menu</title>
+<style>
+:root {
+  --bg: #121212; 
+  --text: #f8fafc; 
+  --accent: #d97706; 
+  --card: #1c1c1c; 
+  --border: #2a2a2a; 
+  --sub: #9ca3af;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  max-width: 480px; 
+  margin: 0 auto; 
+  padding: 16px 16px 40px 16px; 
+  background: var(--bg); 
+  color: var(--text); 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+  min-height: 100vh; 
+}
+
+.header { text-align: center; margin-bottom: 22px; }
+.header h1 { font-size: 22px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+.header p { font-size: 13px; color: var(--sub); line-height: 1.4; }
+
+.category-title { 
+  font-size: 15px; 
+  font-weight: 700; 
+  color: var(--accent); 
+  text-transform: uppercase; 
+  margin: 24px 0 12px 0; 
+  border-bottom: 1px solid var(--border); 
+  padding-bottom: 4px; 
+  letter-spacing: 1px;
+}
+
+/* Layout: Modern Cards */
+.item-box { 
+  background: var(--card); 
+  border: 1px solid var(--border); 
+  border-radius: 12px; 
+  padding: 14px; 
+  margin-bottom: 12px; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+}
+
+.item-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 15px; font-weight: 600; }
+.item-price { font-weight: 700; color: var(--accent); white-space: nowrap; direction: ltr; }
+.item-desc { font-size: 13px; color: var(--sub); line-height: 1.4; margin-top: 5px; font-weight: 400; }
+
+.phone-link { 
+  display: inline-block; 
+  margin-top: 8px; 
+  font-size: 13px; 
+  color: var(--accent); 
+  text-decoration: none; 
+  direction: ltr !important; 
+  unicode-bidi: embed; 
+}
+
+.lang-switch {
+  display: flex; 
+  justify-content: center; 
+  gap: 8px; 
+  margin-bottom: 20px;
+}
+.lang-switch button {
+  padding: 8px 20px; 
+  border-radius: 20px; 
+  font-weight: 600; 
+  font-size: 13px; 
+  border: 1px solid var(--border); 
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#section-ar { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button id="btn-en" onclick="setLang('en')" style="background:var(--accent); color:#ffffff;">English</button>
+  <button id="btn-ar" onclick="setLang('ar')" style="background:var(--card); color:var(--text);">العربية</button>
+</div>
+
+<!-- ENGLISH SECTION -->
+<div id="section-en" dir="ltr">
+  <div class="header">
+    <h1>LUXE BISTRO</h1>
+    <p>Experience the finest culinary creations with premium ingredients and authentic flavors.</p>
+    <a href="tel:+971500000000" class="phone-link"><bdi>+971 50 000 0000</bdi></a>
+  </div>
+
+  <div class="category-title">Appetizers</div>
+  
+  <div class="item-box">
+    <div class="item-row">
+      <span>Truffle Burrata</span>
+      <span class="item-price">45 AED</span>
+    </div>
+    <p class="item-desc">Fresh burrata cheese, black truffle shavings, heirloom tomatoes, and aged balsamic glaze.</p>
+  </div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>Golden Calamari</span>
+      <span class="item-price">38 AED</span>
+    </div>
+    <p class="item-desc">Crispy salt and pepper calamari served with spicy citrus aioli.</p>
+  </div>
+
+  <div class="category-title">Main Courses</div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>Wagyu Ribeye</span>
+      <span class="item-price">185 AED</span>
+    </div>
+    <p class="item-desc">Grade 9+ Wagyu, roasted garlic mash, grilled asparagus, and red wine jus.</p>
+  </div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>Pan-Seared Salmon</span>
+      <span class="item-price">95 AED</span>
+    </div>
+    <p class="item-desc">Atlantic salmon, quinoa salad, lemon butter sauce, and micro-greens.</p>
+  </div>
+
+  <div class="category-title">Desserts</div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>Saffron Cheesecake</span>
+      <span class="item-price">32 AED</span>
+    </div>
+    <p class="item-desc">Creamy New York style cheesecake infused with premium Persian saffron.</p>
+  </div>
+</div>
+
+<!-- ARABIC SECTION -->
+<div id="section-ar" dir="rtl" style="display:none;">
+  <div class="header">
+    <h1>لوكس بيسترو</h1>
+    <p>استمتع بتجربة أرقى المأكولات المحضرة من أجود المكونات والنكهات الأصيلة.</p>
+    <a href="tel:+971500000000" class="phone-link"><bdi>+971 50 000 0000</bdi></a>
+  </div>
+
+  <div class="category-title">المقبلات</div>
+  
+  <div class="item-box">
+    <div class="item-row">
+      <span>بوراتا بالكمأة</span>
+      <span class="item-price">45 د.إ</span>
+    </div>
+    <p class="item-desc">جبنة بوراتا طازجة، شرائح الكمأة السوداء، طماطم كرزية، وصلصة البلسميك المعتقة.</p>
+  </div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>كالاماري ذهبي</span>
+      <span class="item-price">38 د.إ</span>
+    </div>
+    <p class="item-desc">كالاماري مقرمش بالملح والفلفل يقدم مع صوص الأيولي بالحمضيات الحارة.</p>
+  </div>
+
+  <div class="category-title">الأطباق الرئيسية</div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>واغيو ريب آي</span>
+      <span class="item-price">185 د.إ</span>
+    </div>
+    <p class="item-desc">شريحة لحم واغيو فاخرة، مهروس البطاطس بالثوم المحمص، هليون مشوي، ومرق اللحم.</p>
+  </div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>سلمون مشوي</span>
+      <span class="item-price">95 د.إ</span>
+    </div>
+    <p class="item-desc">سلمون أطلسي، سلطة كينوا، صلصة زبدة الليمون، وأعشاب طازجة.</p>
+  </div>
+
+  <div class="category-title">الحلويات</div>
+
+  <div class="item-box">
+    <div class="item-row">
+      <span>تشيز كيك الزعفران</span>
+      <span class="item-price">32 د.إ</span>
+    </div>
+    <p class="item-desc">تشيز كيك كريمي بأسلوب نيويورك ممزوج بأجود أنواع الزعفران الإيراني.</p>
+  </div>
+</div>
+
+<script>
+  function setLang(l) {
+    var e = document.getElementById('section-en');
+    var a = document.getElementById('section-ar');
+    var be = document.getElementById('btn-en');
+    var ba = document.getElementById('btn-ar');
+    
+    if (l === 'ar') {
+      e.style.display = 'none';
+      a.style.display = 'block';
+      ba.style.background = 'var(--accent)';
+      ba.style.color = '#ffffff';
+      be.style.background = 'var(--card)';
+      be.style.color = 'var(--text)';
+    } else {
+      a.style.display = 'none';
+      e.style.display = 'block';
+      be.style.background = 'var(--accent)';
+      be.style.color = '#ffffff';
+      ba.style.background = 'var(--card)';
+      ba.style.color = 'var(--text)';
+    }
+  }
+</script>
+
+</body>
+</html></html>
